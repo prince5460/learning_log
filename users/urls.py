@@ -9,6 +9,6 @@ app_name = 'users'
 
 urlpatterns = [
     # 登录页面
-    url('^login/$', login, {'template_name': 'users/login.html'},
-        name=login),
+    url(r'^login/$', login, {'template_name': 'users/login.html'},
+        name='login'),
 ]
