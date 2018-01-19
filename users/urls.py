@@ -14,4 +14,7 @@ urlpatterns = [
 
     # 注销
     url('^logout/$', views.logout_view, name='logout'),
+
+    # 注册
+    url('^register/$', views.register, name='register'),
 ]
