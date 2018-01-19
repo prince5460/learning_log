@@ -24,7 +24,7 @@ SECRET_KEY = '(vk4j5t_@7^4@$hy6(!+jrxl^uy%$7cyf&5_tun8wkh7^ilzp!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 # Application definition
 
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -133,3 +133,7 @@ BOOTSTRAP3 = {
 }
 
 LOGIN_URL = '/users/login/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]

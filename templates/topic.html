@@ -6,11 +6,11 @@
 
 {% block content %}
 
-    <p>Topic : {{ topic }}</p>
+    <p> 主题: {{ topic }}</p>
 
-    <p> Entries:</p>
+{#    <p> 条目:</p>#}
     <p>
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">add new entry</a>
+        <a href="{% url 'learning_logs:new_entry' topic.id %}">新增条目</a>
     </p>
     <ul>
         {% for entry in entries %}
@@ -20,7 +20,7 @@
                         {{ entry.date_added | date:'M d,Y H:i' }}
                         <small>
                             <a href="{% url 'learning_logs:edit_entry' entry.id %}">
-                                edit entry
+                                编辑条目
                             </a>
                         </small>
                     </h3>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         {% empty %}
-            There are no entries for this topic yet.
+            还没有相关主题和内容.
         {% endfor %}
     </ul>
 
