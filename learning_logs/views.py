@@ -10,7 +10,7 @@ from .forms import TopicForm, EntryForm
 # Create your views here.
 def index(request):
     '''主页'''
-    return render(request, 'index.html')
+    return render(request, 'learning_logs/index.html')
 
 
 @login_required
@@ -18,7 +18,7 @@ def topics(request):
     '''显示所有主题'''
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
-    return render(request, 'topics.html', context)
+    return render(request, 'learning_logs/topics.html', context)
 
 
 @login_required
@@ -31,7 +31,7 @@ def topic(request, topic_id):
 
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
-    return render(request, 'topic.html', context)
+    return render(request, 'learning_logs/topic.html', context)
 
 
 @login_required
@@ -50,7 +50,7 @@ def new_topic(request):
             return HttpResponseRedirect(reverse('learning_logs:topics'))
 
     context = {'form': form}
-    return render(request, 'new_topic.html', context)
+    return render(request, 'learning_logs/new_topic.html', context)
 
 
 @login_required
@@ -72,7 +72,7 @@ def new_entry(request, topic_id):
                                                 args=[topic_id]))
 
     context = {'topic': topic, 'form': form}
-    return render(request, 'new_entry.html', context)
+    return render(request, 'learning_logs/new_entry.html', context)
 
 
 @login_required
@@ -95,4 +95,4 @@ def edit_entry(request, entry_id):
                                                 args=[topic.id]))
 
     context = {'entry': entry, 'topic': topic, 'form': form}
-    return render(request, 'edit_entry.html', context)
+    return render(request, 'learning_logs/edit_entry.html', context)
